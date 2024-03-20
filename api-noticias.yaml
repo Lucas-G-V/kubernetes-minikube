@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-noticias
+  namespace: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api-noticias
+  template:
+    metadata:
+      labels:
+        app: api-noticias
+    spec:
+      containers:
+      - name: api-noticias-container
+        image: lgv1505/fiapnoticiaswebapi:latest
+        ports:
+        - containerPort: 80
